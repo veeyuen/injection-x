@@ -1,43 +1,29 @@
 <!doctype html>
-
 <html>
 <head>
   <meta charset="utf-8" />
-  <title>Injection Diff Demo — EV Market</title>
+  <title>Injection Diff Demo (Schema-Matched)</title>
 </head>
 <body>
-  <h1>Injected Metrics (Evolution “Current”)</h1>
+  <h1>Injected Current Metrics (Schema-Matched)</h1>
+  <p id="marker">INJECTION_DIFF_SCHEMA_MATCH_2026_01_16</p>
 
-  <!-- Keep marker NON-NUMERIC to avoid year-token pollution -->
+  <!-- Match: global_ev_chargers_2040__unit_count (unit_family=magnitude, unit=M) -->
+  <p><strong>Global EV chargers (2040):</strong> 60.0 million chargers</p>
 
-  <p id="marker">INJECTION_DIFF_DEMO_V1</p>
+  <!-- Match: global_ev_charging_investment_2040__currency (unit_family=currency, unit=USD/B) -->
+  <p><strong>Global EV charging investment (2040):</strong> US$ 2.4 trillion</p>
 
-  <h2>Baseline-aligned metrics (should bind to Analysis keys)</h2>
+  <!-- Match: global_ev_chargers_cagr_2026_2040__percent (unit_family=percent, unit=%)
+       Avoid listing "2026" or "2040" as standalone numbers -->
+  <p><strong>Global EV charging infrastructure CAGR (2026–2040):</strong> 7.5%</p>
 
-  <!-- These are intentionally different from baseline so diff activates -->
+  <!-- Match: global_ev_sales_ytd_2025__unit_sales (unit_family=magnitude, unit=M) -->
+  <p><strong>Global EV sales (YTD 2025):</strong> 22.9 million units</p>
 
-  <p><strong>Global EV sales (2024):</strong> 18.5 million units</p>
-  <p><strong>Global EV sales (2025):</strong> 20.5 million units</p>
-
-  <!-- Include China explicitly so it can bind to 2025_china_ev_sales__unknown -->
-
-  <p><strong>China EV sales (2025):</strong> 13.4 million units</p>
-
-  <!-- Match the “projected 2026” wording explicitly -->
-
-  <p><strong>Projected global EV sales (2026):</strong> 24.6 million units</p>
-
-  <h2>Optional extras (safe to include, won’t block diffing)</h2>
-
-  <!-- These should bind to market share / revenue keys if present, but are not required -->
-
-  <p><strong>EV market share (2024):</strong> 20.0%</p>
-  <p><strong>EV revenue (2026):</strong> US$ 1050.0 billion</p>
-
-  <!-- Extra synonym hints to help semantic binding -->
-
+  <!-- Helpful extra binding words -->
   <p style="display:none">
-    units sold unit sales global worldwide china projection projected forecast revenue market share percent
+    worldwide global EV charging infrastructure chargers investment capex spending CAGR percent YTD sales million units
   </p>
 </body>
 </html>
